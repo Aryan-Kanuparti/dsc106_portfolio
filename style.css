@@ -6,5 +6,5 @@ body {
     line-height: 1.5; 
     max-width: 100ch;
     margin-inline: max(1em, (100% - 100ch) / 2); /* Centers the content and ensures a minimum margin */
-    padding-inline: 2em;
+    padding-inline: 5em;
   }
