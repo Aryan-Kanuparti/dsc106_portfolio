@@ -126,7 +126,7 @@ form button:hover {
     padding: 1em;
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px #C084FC;
 }
 
 .projects article img {
@@ -143,7 +143,7 @@ form button:hover {
 }
 
 .projects article:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px #C084FC;
     transform: scale(1.02);
     transition: all 0.2s ease-in-out;
 }
