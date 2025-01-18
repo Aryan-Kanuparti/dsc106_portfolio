@@ -177,3 +177,96 @@ h5 {
 h6 {
     font-size: 1.1em;
 }
+
+/* Styling for sections and articles */
+.resume-section {
+    margin-bottom: 2em;
+}
+
+.resume-section header {
+    margin-bottom: 0.5em;
+    border-bottom: 2px solid #444;
+    padding-bottom: 0.5em;
+}
+
+.resume-section h2 {
+    font-size: 2em;
+    color: #333;
+    text-align: left;
+}
+
+.resume-section article {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.resume-section article:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resume-section h3 {
+    font-size: 1.6em;
+    margin-bottom: 0.5em;
+}
+
+.resume-section time {
+    font-size: 1.1em;
+    color: #888;
+}
+
+.resume-section p {
+    font-size: 1em;
+    color: #555;
+}
+
+.resume-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.resume-section li {
+    margin-bottom: 0.5em;
+}
+
+/* 
+.resume-section p a {
+    font-weight: bold;
+    color: #C084FC;
+    text-decoration: none;
+}
+
+.resume-section p a:hover {
+    text-decoration: underline;
+} */
+
+.download-btn {
+    padding: 0.7em 1.2em; 
+    font: inherit; 
+    background-color: #C084FC; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    text-decoration: none; 
+    text-align: center; 
+    display: inline-block;
+    cursor: pointer; 
+    transition: background-color 0.2s, transform 0.3s ease-in-out;
+}
+
+.download-btn:hover {
+    background-color: #7B3F61; 
+    transform: scale(1.05); 
+}
+
+.download-btn:focus {
+    outline: 3px solid #C084FC; 
+    outline-offset: 2px;
+}
+
+
+/* end resume section*/
