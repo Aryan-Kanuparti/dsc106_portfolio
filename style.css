@@ -115,9 +115,13 @@ form button:hover {
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); 
     gap: 1em;
     padding: 1em;
+    grid-template-rows: subgrid;
 }
 
 .projects article {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-row: span 3; /* just makes each article span 3 rows */
     border: 1px solid #ddd;
     padding: 1em;
     background-color: #f9f9f9;
@@ -130,11 +134,12 @@ form button:hover {
     height: auto;
     display: block;
     margin-bottom: 1em;
+    grid-row: span 2;
 }
 
 .projects article h2 {
     font-size: 1.5em;
-    margin: 0 0 0.5em;
+    margin: 0;
 }
 
 .projects article:hover {
