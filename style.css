@@ -118,9 +118,6 @@ form button:hover {
 }
 
 .projects article {
-    display: grid;
-    grid-template-rows: subgrid; 
-    grid-row: span 3;
     border: 1px solid #ddd;
     padding: 1em;
     background-color: #f9f9f9;
@@ -144,10 +141,4 @@ form button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: scale(1.02);
     transition: all 0.2s ease-in-out;
-}
-
-h1 {
-    font-size: 400%; 
-    line-height: 1.1;
-    text-wrap: balance;
 }
