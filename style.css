@@ -8,3 +8,46 @@ body {
     margin-inline: max(1em, (100% - 100ch) / 2); 
     padding-inline: 2em;
   }
+
+  /* 2.1:*/
+nav ul {
+    display: contents; 
+}
+
+nav li {
+    display: contents; 
+}
+
+/* 2.2*/
+nav {
+    display: flex;
+    border-bottom: 1px solid oklch(80% 3% 200);
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+}
+
+
+nav a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none; 
+    color: inherit; 
+    padding: 0.5em;
+    transition: border-bottom-color 0.3s, background-color 0.3s;
+}
+
+
+nav a.current {
+    border-bottom: 0.4em solid oklch(80% 3% 200);
+    padding-bottom: 0.1em; 
+}
+
+/* 2.4  */
+html {
+    --color-accent: oklch(60% 30% 300); 
+}
+
+nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
+    background-color: oklch(from var(--color-accent) 95% 5% h);
+}
