@@ -1,18 +1,4 @@
 console.log("IT’S ALIVE!");
-
-// function $$(selector, context = document) {
-//   return Array.from(context.querySelectorAll(selector));
-// }
-
-// // Step 2 lab 3: add "current" class to the current page link
-// const navLinks = $$("nav a");
-
-// let currentLink = navLinks.find(
-//   (a) => a.host === location.host && a.pathname === location.pathname
-// );
-
-// currentLink?.classList.add("current");
-
 let pages = [
     { url: '', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
@@ -51,8 +37,6 @@ let pages = [
   }
   
 
-
-  // Add the dark mode switcher dropdown to the top of the page
 document.body.insertAdjacentHTML(
     'afterbegin',
     `
@@ -68,20 +52,37 @@ document.body.insertAdjacentHTML(
 
 const select = document.querySelector('.color-scheme select');
 
-// Function to set the color scheme
+
+// set the color scheme
 function setColorScheme(colorScheme) {
-    document.documentElement.style.setProperty('color-scheme', colorScheme);
     select.value = colorScheme;
+    if (colorScheme === "light") {
+        document.documentElement.style.setProperty("--color-bg", "#ffffff");
+        document.documentElement.style.setProperty("--color-text", "#000000");
+        document.documentElement.style.setProperty("--color-accent", "oklch(60% 30% 300)");
+    } else if (colorScheme === "dark") {
+        document.documentElement.style.setProperty("--color-bg", "#121212");
+        document.documentElement.style.setProperty("--color-text", "#ffffff");
+        document.documentElement.style.setProperty("--color-accent", "oklch(60% 50% 300)");
+    } else {
+        // setting up automatic
+        const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        setColorScheme(isDarkMode ? "dark" : "light");
+        return; // Prevent saving "light dark" in localStorage
+    }
+
+    // Save preference
+    localStorage.colorScheme = colorScheme;
 }
 
-// Load the user's saved preference from localStorage
 if ("colorScheme" in localStorage) {
     setColorScheme(localStorage.colorScheme);
+} else {
+    //makes automatic work
+    const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setColorScheme(isDarkMode ? "dark" : "light");
 }
 
-// Listen for changes in the dropdown
-select.addEventListener('input', function (event) {
-    const colorScheme = event.target.value;
-    setColorScheme(colorScheme);
-    localStorage.colorScheme = colorScheme; // Save the preference
+select.addEventListener("input", (event) => {
+    setColorScheme(event.target.value);
 });

@@ -1,13 +1,37 @@
+:root {
+    color-scheme: light dark;
+    --color-bg: #ffffff; /* Background color */
+    --color-text: #000000; /* Text color */
+    --color-accent: oklch(60% 30% 300);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #121212; /* Dark mode background */
+        --color-text: #ffffff; /* Dark mode text color */
+        --color-accent: oklch(60% 50% 300);
+    }
+}
+
+
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+    font-family: inherit;
+}
+
+
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
+    background-color: var(--color-bg); /* use s the variable for background */
+    color: var(--color-text); /* uses the variable for text */
     font: 100%/1.5 system-ui;
-    line-height: 1.5; 
+    line-height: 1.5;
     max-width: 100ch;
-    margin-inline: max(1em, (100% - 100ch) / 2); 
+    margin-inline: max(1em, (100% - 100ch) / 2);
     padding-inline: 2em;
-  }
+}
 
   /* 2.1:*/
 nav ul {
@@ -22,6 +46,8 @@ nav li {
 nav {
     display: flex;
     border-bottom: 1px solid oklch(80% 3% 200);
+    --border-color: oklch(50% 10% 200 / 40%);
+    border-bottom-color: var(--border-color);
     margin-bottom: 1em;
     padding-bottom: 0.5em;
 }
@@ -31,15 +57,21 @@ nav a {
     flex: 1;
     text-align: center;
     text-decoration: none; 
-    color: inherit; 
+    color: var(--color-text); 
     padding: 0.5em;
     transition: border-bottom-color 0.3s, background-color 0.3s;
 }
 
 
 nav a.current {
-    border-bottom: 0.4em solid oklch(80% 3% 200);
+    border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em; 
+}
+
+nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent);
+    /* background-color: oklch(60% 30% 300); */
+    background-color: color-mix(in oklch, var(--color-accent), #FFFFFF 30%); 
 }
 
 /* 2.4  */
@@ -47,10 +79,6 @@ html {
     --color-accent: oklch(60% 30% 300); 
 }
 
-nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent);
-    background-color: oklch(from var(--color-accent) 95% 5% h);
-}
 
 /*fixing new image*/
 
@@ -72,13 +100,13 @@ form {
     display: grid; /* Enable grid layout */
     grid-template-columns: auto 1fr; 
     gap: 1em; 
-    max-width: 500px; /* Limit form width for  usability */
+    max-width: 500px; 
     margin: 0 auto; 
 }
 
 
 form label {
-    display: contents; /* makes the labels part of the grid */
+    display: contents; 
     font-weight: bold; 
 }
 
@@ -88,7 +116,9 @@ form textarea {
     box-sizing: border-box; 
     padding: 0.5em; 
     border: 1px solid #ccc;
-    border-radius: 4px; 
+    border-radius: 4px;
+    background-color: #ffffff; 
+    color: #000000; 
 }
 
 /* Button styling */
@@ -124,7 +154,7 @@ form button:hover {
     grid-row: span 3; /* just makes each article span 3 rows */
     border: 1px solid #ddd;
     padding: 1em;
-    background-color: #f9f9f9;
+    background-color: var(--color-bg);
     border-radius: 8px;
     box-shadow: 0 2px 4px #C084FC;
 }
@@ -184,6 +214,7 @@ h6 {
 }
 
 .resume-section header {
+    color: var(--color-text);
     margin-bottom: 0.5em;
     border-bottom: 2px solid #444;
     padding-bottom: 0.5em;
@@ -191,12 +222,12 @@ h6 {
 
 .resume-section h2 {
     font-size: 2em;
-    color: #333;
+    color: var(--color-text);
     text-align: left;
 }
 
 .resume-section article {
-    background-color: #f9f9f9;
+    background-color: var(--color-bg);
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1em;
@@ -233,16 +264,6 @@ h6 {
     margin-bottom: 0.5em;
 }
 
-/* 
-.resume-section p a {
-    font-weight: bold;
-    color: #C084FC;
-    text-decoration: none;
-}
-
-.resume-section p a:hover {
-    text-decoration: underline;
-} */
 
 .download-btn {
     padding: 0.7em 1.2em; 
@@ -270,25 +291,3 @@ h6 {
 
 
 /* end resume section*/
-
-:root {
-    color-scheme: light dark;
-}
-
-nav {
-    --border-color: oklch(50% 10% 200 / 40%);
-    border-bottom-color: var(--border-color);
-}
-
-nav a:hover {
-    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-}
-
-
-.color-scheme {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 80%;
-    font-family: inherit;
-}
