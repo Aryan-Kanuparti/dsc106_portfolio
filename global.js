@@ -121,9 +121,9 @@ document.body.prepend(nav);
 // Define the pages array
 let pages = [
     { url: 'index.html', title: 'Home' },
-    { url: 'projects/', title: 'Projects' },
-    { url: 'contact/', title: 'Contact' },
-    { url: 'resume/', title: 'Resume' },
+    { url: 'projects/index.html', title: 'Projects' },
+    { url: 'contact/index.html', title: 'Contact' },
+    { url: 'resume/index.html', title: 'Resume' },
     { url: 'https://github.com/Aryan-Kanuparti', title: 'GitHub' },
 ];
 
