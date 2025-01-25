@@ -1,12 +1,12 @@
 console.log("IT’S ALIVE!");
 
-let basePath = window.location.hostname === 'localhost' ? '' : '/dsc106_portfolio/';
+// let basePath = window.location.hostname === 'localhost' ? '' : '/dsc106_portfolio/';
 
 let pages = [
-    { url: 'index.html', title: 'Home' },
-    { url: 'projects/index.html', title: 'Projects' },
-    { url: 'contact/index.html', title: 'Contact' },
-    { url: 'resume/index.html', title: 'Resume' },
+    { url: 'dsc106_portfolio/index.html', title: 'Home' },
+    { url: 'dsc106_portfolio/projects/index.html', title: 'Projects' },
+    { url: 'dsc106_portfolio/contact/index.html', title: 'Contact' },
+    { url: 'dsc106_portfolio/resume/index.html', title: 'Resume' },
     { url: 'https://github.com/Aryan-Kanuparti', title: 'GitHub' },
 ];
 
