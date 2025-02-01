@@ -92,3 +92,43 @@ if ("colorScheme" in localStorage) {
 select.addEventListener("input", (event) => {
     setColorScheme(event.target.value);
 });
+
+
+//lab 4 step 1
+
+export async function fetchJSON(url) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch projects: ${response.statusText}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching or parsing JSON data:', error);
+        return []; // Return an empty array to prevent crashes
+    }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+    if (!containerElement) {
+        console.error("Invalid container element provided.");
+        return;
+    }
+
+    containerElement.innerHTML = ''; // Clear existing content
+
+    if (projects.length === 0) {
+        containerElement.innerHTML = '<p>No projects available.</p>';
+        return;
+    }
+
+    projects.forEach(project => {
+        const article = document.createElement('article');
+        article.innerHTML = `
+            <${headingLevel}>${project.title}</${headingLevel}>
+            <img src="${project.image}" alt="${project.title}">
+            <p>${project.description}</p>
+        `;
+        containerElement.appendChild(article);
+    });
+}
