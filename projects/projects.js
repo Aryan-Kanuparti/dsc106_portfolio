@@ -2,6 +2,7 @@ import { fetchJSON, renderProjects } from '../global.js';
 
 async function loadProjects() {
     const projects = await fetchJSON('../lib/projects.json');
+    console.log("Fetched projects:", projects); // Debugging line
     const projectsContainer = document.querySelector('.projects');
 
     if (!projectsContainer) {
