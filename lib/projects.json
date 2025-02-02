@@ -18,16 +18,16 @@
         "description": "This project investigates the variation in healthcare access and quality across different demographic groups in various U.S. cities over the past five years, focusing on geographical hospital density, facilities, funding, mortality rates, readmission rates, and patient satisfaction. By examining the interplay between income inequality and healthcare disparities, it aims to highlight systemic issues that contribute to unequal access to quality healthcare among different populations, particularly in the context of rising healthcare costs and socioeconomic factors."
     },
     {
-        "title": "Distinctio ipsam necessitatibus exercitationem.",
-        "year": "",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Aspernatur dolore odio ab accusantium rerum laboriosam magnam velit, inventore cupiditate? Commodi, fugit. Porro architecto harum incidunt dolorum esse suscipit, cupiditate reiciendis, quisquam omnis provident expedita voluptate sunt fugit quia."
+        "title": "Profanity Checker Discord Bot",
+        "year": "2022",
+        "image": "lib/profanity.png",
+        "description": "Collaborated with new teammates and learnt the basics of node.js and javascript to design and implement a working discord bot that kicks out users from a discord server who send messages in the chat that are deemed inappropriate. The bot incrementally scans incoming messages and kicks users after they type profanity. We also implemented a feature that exempted admin members from these rules and gave them the option to manually kick users with unique text commands."
     },
     {
-        "title": "Praesentium aspernatur libero natus.",
-        "year": "",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Nihil labore atque et adipisci odio, magnam repellendus obcaecati recusandae minima, accusamus distinctio expedita assumenda delectus nesciunt quia illum id accusantium asperiores nobis doloribus provident officia numquam sunt. Quam, veniam."
+        "title": "Space Invaders PyGame Clone",
+        "year": "2021",
+        "image": "lib/pygame.png",
+        "description": "Worked with three teammates to design and implement a CutieHack(Citrus) themed Space Invaders Clone using python and Pygame. Implemented randomized smooth movement of all enemy objects, as well as hit detection, lives count display, boss health display, and special time events like an extra life power-up or boss special attack."
     },
     {
         "title": "Sit beatae nostrum atque.",
