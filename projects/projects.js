@@ -22,3 +22,31 @@ async function loadProjects() {
 
 // Load projects when the script runs
 loadProjects();
+
+
+// Determine the correct path for projects.json based on the current page
+const isProjectsPage = window.location.pathname.includes("projects");
+const jsonPath = isProjectsPage ? "../lib/projects.json" : "lib/projects.json";
+
+fetch(jsonPath)
+    .then(response => response.json())
+    .then(projects => {
+        // Manage image paths based on the current page
+        const imagePathPrefix = isProjectsPage ? "../" : "";
+
+        // Get the container where projects will be displayed
+        const projectsContainer = document.getElementById('projects-container');
+
+        // Create and display each project
+        projects.forEach(project => {
+            const projectElement = document.createElement('article');
+            projectElement.innerHTML = `
+                <img src="${imagePathPrefix}${project.image}" alt="${project.title}">
+                <h2>${project.title} (${project.year})</h2>
+                <p>${project.description}</p>
+            `;
+            projectsContainer.appendChild(projectElement);
+        });
+    })
+    .catch(error => console.error('Error loading projects:', error));
+
