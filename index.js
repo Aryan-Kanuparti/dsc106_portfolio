@@ -27,21 +27,51 @@ loadLatestProjects();
 
 
 
+// import { fetchGitHubData } from './global.js';
+
+// async function loadGitHubStats() {
+//     try {
+//         const githubData = await fetchGitHubData('Aryan-Kanuparti'); 
+//         // Selectsthe HTML container where the data will be displayed
+//         const profileStats = document.querySelector('#profile-stats');
+//         if (profileStats) {
+//             profileStats.innerHTML = `
+//                 <h2>GitHub Stats</h2>
+//                 <dl>
+//                     <dt>Public Repos:</dt> <dd>${githubData.public_repos}</dd>
+//                     <dt>Public Gists:</dt> <dd>${githubData.public_gists}</dd>
+//                     <dt>Followers:</dt> <dd>${githubData.followers}</dd>
+//                     <dt>Following:</dt> <dd>${githubData.following}</dd>
+//                 </dl>
+//             `;
+//         } else {
+//             console.error("Profile stats container not found.");
+//         }
+//     } catch (error) {
+//         console.error("Error loading GitHub data:", error);
+//     }
+// }
+
+// loadGitHubStats();
+
+
 import { fetchGitHubData } from './global.js';
 
 async function loadGitHubStats() {
     try {
-        const githubData = await fetchGitHubData('Aryan-Kanuparti'); 
-        // Selectsthe HTML container where the data will be displayed
+        const githubData = await fetchGitHubData('Aryan-Kanuparti'); // Replace with your GitHub username
+
         const profileStats = document.querySelector('#profile-stats');
+
         if (profileStats) {
             profileStats.innerHTML = `
-                <h2>GitHub Stats</h2>
-                <dl>
-                    <dt>Public Repos:</dt> <dd>${githubData.public_repos}</dd>
-                    <dt>Public Gists:</dt> <dd>${githubData.public_gists}</dd>
-                    <dt>Followers:</dt> <dd>${githubData.followers}</dd>
-                    <dt>Following:</dt> <dd>${githubData.following}</dd>
+                <h2>Github Stats</h2>
+                <dl id="profile-stats-grid">
+                    <dt>Repos</dt> <dt>Gists</dt> <dt>Followers</dt> <dt>Following</dt>
+                    <dd>${githubData.public_repos}</dd> 
+                    <dd>${githubData.public_gists}</dd> 
+                    <dd>${githubData.followers}</dd> 
+                    <dd>${githubData.following}</dd>
                 </dl>
             `;
         } else {
