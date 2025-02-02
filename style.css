@@ -291,3 +291,23 @@ h6 {
 
 
 /* end resume section*/
+
+#profile-stats dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    background: var(--color-bg);
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 300px;
+}
+
+#profile-stats dt {
+    font-weight: bold;
+    text-align: right;
+}
+
+#profile-stats dd {
+    text-align: left;
+    margin: 0;
+}
