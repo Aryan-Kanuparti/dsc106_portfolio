@@ -292,7 +292,7 @@ h6 {
 
 /* end resume section*/
 
-#profile-stats dl {
+/* #profile-stats dl {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
@@ -309,5 +309,29 @@ h6 {
 
 #profile-stats dd {
     text-align: left;
+    margin: 0;
+} */
+
+
+
+#profile-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Equal Columns */
+    text-align: center;
+    gap: 10px;
+    background: var(--color-bg);
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: auto;
+}
+
+#profile-stats-grid dt {
+    font-weight: bold;
+    grid-row: 1; /* Keep headers in row 1 */
+}
+
+#profile-stats-grid dd {
+    grid-row: 2; /* Keep values in row 2 */
     margin: 0;
 }
