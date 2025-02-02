@@ -292,27 +292,6 @@ h6 {
 
 /* end resume section*/
 
-/* #profile-stats dl {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    background: var(--color-bg);
-    padding: 10px;
-    border-radius: 8px;
-    max-width: 300px;
-}
-
-#profile-stats dt {
-    font-weight: bold;
-    text-align: right;
-}
-
-#profile-stats dd {
-    text-align: left;
-    margin: 0;
-} */
-
-
 
 #profile-stats-grid {
     display: grid;
@@ -324,6 +303,14 @@ h6 {
     border-radius: 8px;
     max-width: 500px;
     margin: auto;
+    box-shadow: 0 2px 4px #C084FC; /* Subtle Purple Shadow */
+    transition: all 0.3s ease-in-out;
+}
+
+
+#profile-stats-grid:hover {
+    box-shadow: 0 4px 8px #C084FC; /* more opaque Shadow on Hover */
+    transform: scale(1.02);
 }
 
 #profile-stats-grid dt {
