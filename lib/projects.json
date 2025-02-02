@@ -3,7 +3,7 @@
         "title": "Holiday Food Analysis",
         "year": "2024",
         "image": "lib/Screen Shot 2025-02-01 at 6.31.29 PM.png",
-        "description": "Analyzed 100,000+ blog recipes, merging multiple datasets to identify similarities and differences between holiday and non-holiday foods in nutrition and consumption. Tested the effect of the holiday season on recipe ratings, hypothesizing that recipes submitted during holidays may be rated more favorably due to seasonal trends and sentiment. Built a baseline model that predicted the rating of a recipe based on fat, sugar, calories, and whether it was posted during the holiday season. Improved the model by 40% via probabilistic imputation, log-transformation of skewed features, and hyperparameter tuning."
+        "description": "Analyzed 100,000+ blog recipes, merging multiple datasets to identify similarities and differences between holiday and non-holiday foods in nutrition and consumption. Tested the effect of the holiday season on recipe ratings, hypothesizing that recipes submitted during holidays may be rated more favorably due to seasonal trends and sentiment. Built and improved the model by 40% via probabilistic imputation, log-transformation of skewed features, and hyperparameter tuning."
     },
     {
         "title": "San Francisco's June Gloom",
@@ -12,10 +12,10 @@
         "description": "This visualization explores how San Francisco's famous summer fog impacts its sunshine trends compared to other major U.S. cities. Using a line chart, it highlights San Francisco's sharp dip in summer sunshine with a bold red line, a shaded blue region for June to August, and an annotation explaining 'June Gloom.' The design focuses on making the trend intuitive by de-emphasizing other cities while maintaining necessary context. This project effectively illustrates how San Francisco's summer climate sets it apart in a clear and engaging way."
     },
     {
-        "title": "Eligendi eaque quae ipsum?",
-        "year": "",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Aut quos accusamus nesciunt aliquam omnis? Ducimus, sapiente molestias eaque repellendus rem enim! Quisquam laboriosam error praesentium quas nobis natus repellat veniam quia omnis aliquid, perspiciatis doloribus impedit a? Consectetur."
+        "title": "Healthcare Access and Quality",
+        "year": "2024",
+        "image": "lib/Screen Shot 2025-02-01 at 7.10.13 PM.png",
+        "description": "This project investigates the variation in healthcare access and quality across different demographic groups in various U.S. cities over the past five years, focusing on geographical hospital density, facilities, funding, mortality rates, readmission rates, and patient satisfaction. By examining the interplay between income inequality and healthcare disparities, it aims to highlight systemic issues that contribute to unequal access to quality healthcare among different populations, particularly in the context of rising healthcare costs and socioeconomic factors."
     },
     {
         "title": "Distinctio ipsam necessitatibus exercitationem.",
