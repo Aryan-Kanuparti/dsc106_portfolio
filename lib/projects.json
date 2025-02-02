@@ -6,10 +6,10 @@
         "description": "Analyzed 100,000+ blog recipes, merging multiple datasets to identify similarities and differences between holiday and non-holiday foods in nutrition and consumption. Tested the effect of the holiday season on recipe ratings, hypothesizing that recipes submitted during holidays may be rated more favorably due to seasonal trends and sentiment. Built a baseline model that predicted the rating of a recipe based on fat, sugar, calories, and whether it was posted during the holiday season. Improved the model by 40% via probabilistic imputation, log-transformation of skewed features, and hyperparameter tuning."
     },
     {
-        "title": "Eligendi quo ea velit!",
-        "year": "",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Est, magnam accusamus repellat ex suscipit animi temporibus eaque illum? Ipsum nisi reiciendis facilis ipsa animi quam aliquam! Vero cum eius, asperiores tenetur quos quam ratione repellendus alias velit minus."
+        "title": "San Francisco's June Gloom",
+        "year": "2025",
+        "image": "lib/project1dsc106.png",
+        "description": "This visualization explores how San Francisco's famous summer fog impacts its sunshine trends compared to other major U.S. cities. Using a line chart, it highlights San Francisco's sharp dip in summer sunshine with a bold red line, a shaded blue region for June to August, and an annotation explaining 'June Gloom.' The design focuses on making the trend intuitive by de-emphasizing other cities while maintaining necessary context. This project effectively illustrates how San Francisco's summer climate sets it apart in a clear and engaging way."
     },
     {
         "title": "Eligendi eaque quae ipsum?",
