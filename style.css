@@ -322,3 +322,16 @@ h6 {
     grid-row: 2; /* Keep values in row 2 */
     margin: 0;
 }
+
+
+.project-year {
+    font-family: Baskerville, serif;
+    font-variant-numeric: oldstyle-nums;
+    font-size: 1rem;
+    color: #555;
+    margin-top: 5px;
+}
+.project-details {
+    display: flex;
+    flex-direction: column;
+}
