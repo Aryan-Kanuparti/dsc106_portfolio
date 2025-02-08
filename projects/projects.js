@@ -1,56 +1,52 @@
-// import { fetchJSON, renderProjects } from '../global.js';
+
+console.log("projects.js is running");
+
+
+import { fetchJSON, renderProjects } from '../global.js';
 
 // async function loadProjects() {
-//     const projects = await fetchJSON('../lib/projects.json');
-//     console.log("Fetched projects:", projects); // Debugging line
-//     const projectsContainer = document.querySelector('.projects');
+//     try {
+//         // Determine the correct path for projects.json based on the current page
+//         const isProjectsPage = window.location.pathname.includes("projects");
+//         const jsonPath = isProjectsPage ? "../lib/projects.json" : "lib/projects.json";
 
-//     if (!projectsContainer) {
-//         console.error("No '.projects' container found in the DOM.");
-//         return;
-//     }
+//         // Fetch projects from the JSON file
+//         const projects = await fetchJSON(jsonPath);
+//         console.log("Fetched projects:", projects); // Debugging line
+//         const projectsContainer = document.querySelector('.projects');
 
-//     renderProjects(projects, projectsContainer, 'h2');
+//         if (!projectsContainer) {
+//             console.error("No '.projects' container found in the DOM.");
+//             return;
+//         }
 
-//     // Step 1.6: Count projects and update the title
-//     const projectCount = projects.length;
-//     const projectTitleElement = document.querySelector('.projects-title');
-//     if (projectTitleElement) {
-//         projectTitleElement.textContent = `Projects (${projectCount})`;
+//         // Manage image paths based on the current page
+
+//         // Render each project
+//         renderProjects(projects, projectsContainer, 'h2', isProjectsPage);
+//         // projects.forEach(project => {
+//         //     const projectElement = document.createElement('article');
+//         //     projectElement.innerHTML = `
+//         //         <img src="${imagePathPrefix}${project.image}" alt="${project.title}">
+//         //         <h2>${project.title} (${project.year})</h2>
+//         //         <p>${project.description}</p>
+//         //     `;
+//         //     projectsContainer.appendChild(projectElement);
+//         // });
+
+//         // Update the project count in the title
+//         const projectCount = projects.length;
+//         const projectTitleElement = document.querySelector('.projects-title');
+//         if (projectTitleElement) {
+//             projectTitleElement.textContent = `Projects (${projectCount})`;
+//         }
+//     } catch (error) {
+//         console.error("Error loading projects:", error);
 //     }
 // }
 
-// // Load projects when the script runs
-// loadProjects();
 
 
-// // Determine the correct path for projects.json based on the current page
-// const isProjectsPage = window.location.pathname.includes("projects");
-// const jsonPath = isProjectsPage ? "../lib/projects.json" : "lib/projects.json";
-
-// fetch(jsonPath)
-//     .then(response => response.json())
-//     .then(projects => {
-//         // Manage image paths based on the current page
-//         const imagePathPrefix = isProjectsPage ? "../" : "";
-
-//         // Get the container where projects will be displayed
-//         const projectsContainer = document.getElementById('projects-container');
-
-//         // Create and display each project
-//         projects.forEach(project => {
-//             const projectElement = document.createElement('article');
-//             projectElement.innerHTML = `
-//                 <img src="${imagePathPrefix}${project.image}" alt="${project.title}">
-//                 <h2>${project.title} (${project.year})</h2>
-//                 <p>${project.description}</p>
-//             `;
-//             projectsContainer.appendChild(projectElement);
-//         });
-//     })
-//     .catch(error => console.error('Error loading projects:', error));
-
-import { fetchJSON, renderProjects } from '../global.js';
 
 async function loadProjects() {
     try {
@@ -68,19 +64,8 @@ async function loadProjects() {
             return;
         }
 
-        // Manage image paths based on the current page
-        const imagePathPrefix = isProjectsPage ? "../" : "";
-
         // Render each project
-        projects.forEach(project => {
-            const projectElement = document.createElement('article');
-            projectElement.innerHTML = `
-                <img src="${imagePathPrefix}${project.image}" alt="${project.title}">
-                <h2>${project.title} (${project.year})</h2>
-                <p>${project.description}</p>
-            `;
-            projectsContainer.appendChild(projectElement);
-        });
+        renderProjects(projects, projectsContainer, 'h2', isProjectsPage);
 
         // Update the project count in the title
         const projectCount = projects.length;
@@ -93,5 +78,41 @@ async function loadProjects() {
     }
 }
 
+
+
+
+
+
 // Load projects when the script runs
 loadProjects();
+
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
+
+// Sample data
+let data = [1, 2, 3, 4, 5, 5];
+
+// Define the SVG container
+d3.select("#projects-plot")
+  .attr("viewBox", "-50 -50 100 100");
+
+// Define arc generator
+let arcGenerator = d3.arc()
+  .innerRadius(0)  // Pie chart (0 inner radius); for donut chart, set this higher
+  .outerRadius(50);
+
+// Generate pie slices
+let sliceGenerator = d3.pie();
+let arcData = sliceGenerator(data);
+let arcs = arcData.map(d => arcGenerator(d));
+
+// Define a color scale
+let colors = d3.scaleOrdinal(d3.schemePaired);
+
+// Append pie slices to SVG
+d3.select("svg")
+  .selectAll("path")
+  .data(arcs)
+  .enter()
+  .append("path")
+  .attr("d", d => d)
+  .attr("fill", (_, idx) => colors(idx));
