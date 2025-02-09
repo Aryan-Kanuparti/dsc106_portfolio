@@ -335,3 +335,71 @@ h6 {
     display: flex;
     flex-direction: column;
 }
+
+
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+}
+
+
+/* Overall Legend Style */
+.legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    gap: 1em;
+    margin-top: 10px;
+    background: var(--color-bg);
+    padding: 15px;
+    border-radius: 16px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 2px 4px #C084FC; /* Subtle Purple Shadow */
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Individual List Items in the Legend */
+.legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    background: white; /* Optionally, set a background to make each item pop */
+    border-radius: 5px; /* Slight rounding of corners */
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect for List Items */
+.legend li:hover {
+    background-color: #f3f3f3; /* Subtle background change on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
+}
+
+/* Swatch Style in Each List Item */
+.swatch {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color);
+    border-radius: 50%;
+}
+
+/* Container for the Pie Chart and Legend */
+.container {
+    display: flex;
+    align-items: center; /* Center the items vertically */
+    gap: 20px;
+}
+  
+/* Make the Legend Take Available Space */
+.legend {
+    flex: 1;
+}
+
+
+
+
+
+
+  

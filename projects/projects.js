@@ -86,33 +86,82 @@ async function loadProjects() {
 // Load projects when the script runs
 loadProjects();
 
+// import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
+
+// // Sample data
+// let data = [1, 2, 3, 4, 5, 5];
+
+// // Define the SVG container
+// d3.select("#projects-plot")
+//   .attr("viewBox", "-50 -50 100 100");
+
+// // Define arc generator
+// let arcGenerator = d3.arc()
+//   .innerRadius(0)  // Pie chart (0 inner radius); for donut chart, set this higher
+//   .outerRadius(50);
+
+// // Generate pie slices
+// let sliceGenerator = d3.pie();
+// let arcData = sliceGenerator(data);
+// let arcs = arcData.map(d => arcGenerator(d));
+
+// // Define a color scale
+// let colors = d3.scaleOrdinal(d3.schemePaired);
+
+// // Append pie slices to SVG
+// d3.select("svg")
+//   .selectAll("path")
+//   .data(arcs)
+//   .enter()
+//   .append("path")
+//   .attr("d", d => d)
+//   .attr("fill", (_, idx) => colors(idx));
+
+// Import D3.js from CDN
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
 // Sample data
-let data = [1, 2, 3, 4, 5, 5];
+let data = [
+    { value: 1, label: 'apples' },
+    { value: 2, label: 'oranges' },
+    { value: 3, label: 'mangos' },
+    { value: 4, label: 'pears' },
+    { value: 5, label: 'limes' },
+    { value: 5, label: 'cherries' },
+  ];
 
 // Define the SVG container
-d3.select("#projects-plot")
-  .attr("viewBox", "-50 -50 100 100");
+const svg = d3.select("#projects-pie-plot")
+  .attr("width", 300)  // Adjust the width of the SVG
+  .attr("height", 300) // Adjust the height of the SVG
+  .attr("viewBox", "-50 -50 100 100"); // Keeps the same coordinate system as in your HTML
 
-// Define arc generator
+// Define the arc generator
 let arcGenerator = d3.arc()
   .innerRadius(0)  // Pie chart (0 inner radius); for donut chart, set this higher
-  .outerRadius(50);
+  .outerRadius(50); // The radius of the pie
 
-// Generate pie slices
-let sliceGenerator = d3.pie();
+// Use D3's pie function to convert data into angles for the slices
+// let sliceGenerator = d3.pie();
+let sliceGenerator = d3.pie().value(d => d.value);
 let arcData = sliceGenerator(data);
 let arcs = arcData.map(d => arcGenerator(d));
 
 // Define a color scale
-let colors = d3.scaleOrdinal(d3.schemePaired);
+let colors = d3.scaleOrdinal(d3.schemeTableau10); // Scalable color scale
 
-// Append pie slices to SVG
-d3.select("svg")
-  .selectAll("path")
+// Append pie slices to the SVG
+svg.selectAll("path")
   .data(arcs)
   .enter()
   .append("path")
   .attr("d", d => d)
-  .attr("fill", (_, idx) => colors(idx));
+  .attr("fill", (_, idx) => colors(idx)); // Assign color based on the slice index
+
+
+let legend = d3.select('.legend');
+data.forEach((d, idx) => {
+    legend.append('li')
+          .attr('style', `--color:${colors(idx)}`) // Use your color scale here
+          .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+});
