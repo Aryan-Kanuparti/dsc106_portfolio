@@ -344,29 +344,36 @@ h6 {
 }
 
 
+
+/* Container for the Pie Chart and Legend */
+.container {
+    display: flex;
+    align-items: flex-start; /* Align items at the start */
+    gap: 20px;
+    width: 100%; /* Ensure the container takes full width */
+}
+
 /* Overall Legend Style */
 .legend {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr)); /* Responsive grid */
     gap: 1em;
     margin-top: 10px;
     background: var(--color-bg);
     padding: 15px;
     border-radius: 16px;
-    max-width: 500px;
-    margin: auto;
+    flex: 1; /* Allow the legend to grow and take available space */
     box-shadow: 0 2px 4px #C084FC; /* Subtle Purple Shadow */
     transition: all 0.3s ease-in-out;
 }
-
 
 /* Individual List Items in the Legend */
 .legend li {
     display: flex;
     align-items: center;
     gap: 0.5em;
-    background: var(--color-bg); /* Optionally, set a background to make each item pop */
-    border-radius: 5px; /* Slight rounding of corners */
+    background: var(--color-bg);
+    border-radius: 5px;
     padding: 5px 10px;
     transition: all 0.3s ease-in-out;
 }
@@ -384,19 +391,6 @@ h6 {
     background-color: var(--color);
     border-radius: 50%;
 }
-
-/* Container for the Pie Chart and Legend */
-.container {
-    display: flex;
-    align-items: center; /* Center the items vertically */
-    gap: 20px;
-}
-  
-/* Make the Legend Take Available Space */
-.legend {
-    flex: 1;
-}
-
 
 
 svg:has(path:hover) path:not(:hover) {
@@ -464,7 +458,6 @@ path {
         color: #ccc;
     }
 }
-
 
 
 
