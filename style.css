@@ -365,7 +365,7 @@ h6 {
     display: flex;
     align-items: center;
     gap: 0.5em;
-    background: white; /* Optionally, set a background to make each item pop */
+    background: var(--color-bg); /* Optionally, set a background to make each item pop */
     border-radius: 5px; /* Slight rounding of corners */
     padding: 5px 10px;
     transition: all 0.3s ease-in-out;
@@ -373,7 +373,7 @@ h6 {
 
 /* Hover Effect for List Items */
 .legend li:hover {
-    background-color: #f3f3f3; /* Subtle background change on hover */
+    background-color: var(--color-bg); /* Subtle background change on hover */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
 }
 
@@ -397,6 +397,73 @@ h6 {
     flex: 1;
 }
 
+
+
+svg:has(path:hover) path:not(:hover) {
+    opacity: 0.5;
+}
+
+path {
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.selected {
+    --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+    fill: var(--color);
+}
+
+.selected:is(li) {
+    font-weight: bold;
+}
+
+
+/* Search Bar Styling */
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5em;
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 950px;
+    padding: 12px 16px;
+    font-size: 18px;
+    border: 2px solid var(--color-accent);
+    border-radius: 8px;
+    outline: none;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#searchInput::placeholder {
+    color: var(--color-text);
+    opacity: 0.7;
+}
+
+#searchInput:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 8px var(--color-accent);
+}
+
+/* Adjusting Search Bar in Dark Mode */
+@media (prefers-color-scheme: dark) {
+    #searchInput {
+        border-color: var(--color-accent);
+        background-color:var(--color-bg);
+        color: var(--color-text);
+    }
+
+    #searchInput::placeholder {
+        color: #ccc;
+    }
+}
 
 
 

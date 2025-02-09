@@ -109,99 +109,6 @@ export async function fetchJSON(url) {
     }
 }
 
-// export function renderProjects(projects, containerElement, headingLevel = 'h2') {
-//     if (!containerElement) {
-//         console.error("Invalid container element provided.");
-//         return;
-//     }
-
-//     containerElement.innerHTML = ''; // Clear existing content
-
-//     if (projects.length === 0) {
-//         containerElement.innerHTML = '<p>No projects available.</p>';
-//         return;
-//     }
-
-//     projects.forEach(project => {
-//         const article = document.createElement('article');
-//         article.innerHTML = `
-//             <${headingLevel}>${project.title}</${headingLevel}>
-//             <img src="${project.image}" alt="${project.title}">
-//             <p>${project.description}</p>
-//         `;
-//         containerElement.appendChild(article);
-//     });
-// }
-
-
-
-
-
-
-// export function renderProjects(projects, containerElement, headingLevel = 'h2', isProjectsPage = false) {
-//     if (!containerElement) {
-//         console.error("Invalid container element provided.");
-//         return;
-//     }
-
-//     containerElement.innerHTML = ''; // Clear existing content
-
-//     if (projects.length === 0) {
-//         containerElement.innerHTML = '<p>No projects available.</p>';
-//         return;
-//     }
-//     const imagePathPrefix = isProjectsPage ? "../lib/" : "lib/";
-//     projects.forEach(project => {
-//         const article = document.createElement('article');
-//         article.innerHTML = `
-//             <${headingLevel}>${project.title}</${headingLevel}>
-//             <img src="${imagePathPrefix}${project.image}" alt="${project.title}">
-//             <div class="project-details">
-//                 <p>${project.description}</p>
-//                 <p class="project-year">${project.year}</p>
-//             </div>
-//         `;
-//         containerElement.appendChild(article);
-//     });
-// }
-
-
-
-
-
-
-// export function renderProjects(projects, containerElement, headingLevel = 'h2', isProjectsPage = false) {
-//     if (!containerElement) {
-//         console.error("Invalid container element provided.");
-//         return;
-//     }
-
-//     containerElement.innerHTML = ''; // Clear existing content
-
-//     if (projects.length === 0) {
-//         containerElement.innerHTML = '<p>No projects available.</p>';
-//         return;
-//     }
-
-//     const imagePathPrefix = isProjectsPage ? "../lib/" : "lib/"; // ✅ Correct path
-
-//     projects.forEach(project => {
-//         const article = document.createElement('article');
-//         // Ensure project.image does not already contain "lib/"
-//         const imageSrc = project.image.startsWith("lib/") ? project.image : `${imagePathPrefix}${project.image}`;
-
-//         article.innerHTML = `
-//             <${headingLevel}>${project.title}</${headingLevel}>
-//             <img src="${project.image}" alt="${project.title}">
-//             <div class="project-details">
-//                 <p>${project.description}</p>
-//                 <p class="project-year">${project.year}</p>
-//             </div>
-//         `;
-//         containerElement.appendChild(article);
-//     });
-// }
-
 
 
 
@@ -215,7 +122,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2', 
     containerElement.innerHTML = ''; // Clear existing content
 
     if (projects.length === 0) {
-        containerElement.innerHTML = '<p>No projects available.</p>';
+        containerElement.innerHTML = '<p>No projects match this query.</p>';
         return;
     }
 
