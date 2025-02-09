@@ -118,50 +118,124 @@ loadProjects();
 //   .attr("fill", (_, idx) => colors(idx));
 
 // Import D3.js from CDN
+
+
+
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
-// Sample data
-let data = [
-    { value: 1, label: 'apples' },
-    { value: 2, label: 'oranges' },
-    { value: 3, label: 'mangos' },
-    { value: 4, label: 'pears' },
-    { value: 5, label: 'limes' },
-    { value: 5, label: 'cherries' },
-  ];
 
-// Define the SVG container
-const svg = d3.select("#projects-pie-plot")
-  .attr("width", 300)  // Adjust the width of the SVG
-  .attr("height", 300) // Adjust the height of the SVG
-  .attr("viewBox", "-50 -50 100 100"); // Keeps the same coordinate system as in your HTML
+// let projects = fetchJSON('../lib/projects.json')
+// let rolledData = d3.rollups(
+//     projects,
+//     (v) => v.length,
+//     (d) => d.year,
+// );
 
-// Define the arc generator
-let arcGenerator = d3.arc()
-  .innerRadius(0)  // Pie chart (0 inner radius); for donut chart, set this higher
-  .outerRadius(50); // The radius of the pie
-
-// Use D3's pie function to convert data into angles for the slices
-// let sliceGenerator = d3.pie();
-let sliceGenerator = d3.pie().value(d => d.value);
-let arcData = sliceGenerator(data);
-let arcs = arcData.map(d => arcGenerator(d));
-
-// Define a color scale
-let colors = d3.scaleOrdinal(d3.schemeTableau10); // Scalable color scale
-
-// Append pie slices to the SVG
-svg.selectAll("path")
-  .data(arcs)
-  .enter()
-  .append("path")
-  .attr("d", d => d)
-  .attr("fill", (_, idx) => colors(idx)); // Assign color based on the slice index
+// let data = rolledData.map(([year, count]) => {
+//     return { value: count, label: year };
+//  });
 
 
-let legend = d3.select('.legend');
-data.forEach((d, idx) => {
-    legend.append('li')
-          .attr('style', `--color:${colors(idx)}`) // Use your color scale here
-          .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
-});
+// // Define the SVG container
+// const svg = d3.select("#projects-pie-plot")
+//   .attr("width", 300)  // Adjust the width of the SVG
+//   .attr("height", 300) // Adjust the height of the SVG
+//   .attr("viewBox", "-50 -50 100 100"); // Keeps the same coordinate system as in your HTML
+
+// // Define the arc generator
+// let arcGenerator = d3.arc()
+//   .innerRadius(0)  // Pie chart (0 inner radius); for donut chart, set this higher
+//   .outerRadius(50); // The radius of the pie
+
+// // Use D3's pie function to convert data into angles for the slices
+// // let sliceGenerator = d3.pie();
+// let sliceGenerator = d3.pie().value(d => d.value);
+// let arcData = sliceGenerator(data);
+// let arcs = arcData.map(d => arcGenerator(d));
+
+// // Define a color scale
+// let colors = d3.scaleOrdinal(d3.schemeTableau10); // Scalable color scale
+
+// // Append pie slices to the SVG
+// svg.selectAll("path")
+//   .data(arcs)
+//   .enter()
+//   .append("path")
+//   .attr("d", d => d)
+//   .attr("fill", (_, idx) => colors(idx)); // Assign color based on the slice index
+
+
+// let legend = d3.select('.legend');
+// data.forEach((d, idx) => {
+//     legend.append('li')
+//           .attr('style', `--color:${colors(idx)}`) // Use your color scale here
+//           .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+// });
+
+async function preparePieChartData() {
+    // Fetch the project data
+    const projects = await fetchJSON('../lib/projects.json');
+
+    // Debugging: log the projects data to ensure it's correct
+    console.log('Fetched Projects:', projects);
+
+    // Make sure projects is an array of objects with a 'year' property
+    if (!Array.isArray(projects) || projects.some(p => !p.year)) {
+        console.error('Invalid data format! Each project must have a "year" property.');
+        return;
+    }
+
+    // Roll up the data by year, counting the number of projects per year
+    let rolledData = d3.rollups(
+        projects,
+        (v) => v.length,
+        (d) => d.year,
+    );
+
+    // Map the rolled data to the format needed for the pie chart
+    let data = rolledData.map(([year, count]) => {
+        return { value: count, label: year };
+    });
+
+    // Debugging: log the rolledData and the final data
+    console.log('Rolled Data:', rolledData);
+    console.log('Pie Chart Data:', data);
+
+    // Define the SVG container
+    const svg = d3.select("#projects-pie-plot")
+        .attr("width", 300)  // Adjust the width of the SVG
+        .attr("height", 300) // Adjust the height of the SVG
+        .attr("viewBox", "-50 -50 100 100"); // Keeps the same coordinate system as in your HTML
+
+    // Define the arc generator for pie chart slices
+    let arcGenerator = d3.arc()
+        .innerRadius(0)  // Pie chart (0 inner radius); for donut chart, set this higher
+        .outerRadius(50); // The radius of the pie
+
+    // Use D3's pie function to convert data into angles for the slices
+    let sliceGenerator = d3.pie().value(d => d.value);
+    let arcData = sliceGenerator(data);
+    let arcs = arcData.map(d => arcGenerator(d));
+
+    // Define a color scale for the pie slices
+    let colors = d3.scaleOrdinal(d3.schemeTableau10); // Scalable color scale
+
+    // Append pie slices to the SVG
+    svg.selectAll("path")
+        .data(arcs)
+        .enter()
+        .append("path")
+        .attr("d", d => d)
+        .attr("fill", (_, idx) => colors(idx)); // Assign color based on the slice index
+
+    // Append a legend to display the years and their counts
+    let legend = d3.select('.legend');
+    data.forEach((d, idx) => {
+        legend.append('li')
+            .attr('style', `--color:${colors(idx)}`) // Use your color scale here
+            .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
+    });
+}
+
+// Call the async function to prepare the pie chart
+preparePieChartData();
