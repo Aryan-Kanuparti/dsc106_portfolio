@@ -470,11 +470,12 @@ path {
     border-radius: 8px;
     max-width: 600px;
     margin: auto;
+    margin-bottom: 20px;
     box-shadow: 0 2px 4px #C084FC; /* Subtle purple shadow */
     transition: all 0.3s ease-in-out;
   }
   
-  .stat-item {
+.stat-item {
     background: var(--color-bg);
     padding: 10px 15px;
     border-radius: 6px;
@@ -485,8 +486,18 @@ path {
     flex: 1 1 30%; /* Adjust width as needed */
   }
   
-  .stat-item:hover {
+.stat-item:hover {
     background: #C084FC; /* Purple hover effect */
     color: var(--color);
   }
+
+.gridlines line {
+    stroke: #ddd;
+    stroke-dasharray: 2,2;
+  }
   
+  
+
+h2 {
+    margin-top: 20px;
+  }
