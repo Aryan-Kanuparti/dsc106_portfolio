@@ -501,3 +501,42 @@ path {
 h2 {
     margin-top: 20px;
   }
+
+
+/* Style for the tooltip container */
+dl.info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    transition-duration: 500ms;
+    transition-property: opacity, visibility;
+  }
+  
+  /* Additional tooltip styling for positioning */
+.tooltip {
+    position: fixed;
+    top: 1em; /* Default starting position (will be updated dynamically) */
+    left: 1em;
+  }
+  
+  /* Hide tooltip when the 'hidden' attribute is present */
+dl.info[hidden]:not(:hover, :focus-within) {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  /* Style for circle elements (the scatterplot dots) */
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  
+circle:hover {
+    transform: scale(1.5);
+  }
+  

@@ -150,9 +150,61 @@ function createScatterplot() {
     .attr('cx', d => xScale(d.datetime))
     .attr('cy', d => yScale(d.hourFrac))
     .attr('r', 5)
-    .attr('fill', 'steelblue');
+    .attr('fill', 'steelblue')
+    .on('mouseenter', (event, commit) => {
+        updateTooltipContent(commit);
+        updateTooltipVisibility(true);
+        updateTooltipPosition(event);
+    })
+    .on('mouseleave', () => {
+        updateTooltipContent({});  // Clear tooltip content
+        updateTooltipVisibility(false);
+    });
 }
 
+
+
+// Updates the tooltip content based on the commit object
+function updateTooltipContent(commit) {
+    const link = document.getElementById('commit-link');
+    const date = document.getElementById('commit-date');
+    const timeEl = document.getElementById('commit-time');
+    const authorEl = document.getElementById('commit-author');
+    const linesEl = document.getElementById('commit-lines');
+    
+    // If commit is empty, clear content
+    if (Object.keys(commit).length === 0) {
+      link.textContent = '';
+      date.textContent = '';
+      timeEl.textContent = '';
+      authorEl.textContent = '';
+      linesEl.textContent = '';
+      return;
+    }
+    
+    link.href = commit.url;
+    link.textContent = commit.id;
+    // Format the date nicely; adjust options as needed
+    date.textContent = commit.datetime ? commit.datetime.toLocaleString('en', { dateStyle: 'full' }) : '';
+    timeEl.textContent = commit.datetime ? commit.datetime.toLocaleTimeString('en', { timeStyle: 'short' }) : '';
+    authorEl.textContent = commit.author || '';
+    linesEl.textContent = commit.totalLines;
+  }
+  
+  // Updates tooltip visibility
+function updateTooltipVisibility(isVisible) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.hidden = !isVisible;
+  }
+  
+  // Positions the tooltip near the mouse cursor
+function updateTooltipPosition(event) {
+    const tooltip = document.getElementById('commit-tooltip');
+    tooltip.style.left = `${event.clientX}px`;
+    tooltip.style.top = `${event.clientY}px`;
+  }
+
+  
 document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
   // Optionally, remove console.log calls once you're satisfied with the output.
