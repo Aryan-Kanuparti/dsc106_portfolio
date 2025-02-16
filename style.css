@@ -460,6 +460,33 @@ path {
 }
 
 
-
-
+#stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    background: var(--color-bg);
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 2px 4px #C084FC; /* Subtle purple shadow */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .stat-item {
+    background: var(--color-bg);
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 1px 3px #C084FC;
+    transition: background 0.3s ease-in-out;
+    flex: 1 1 30%; /* Adjust width as needed */
+  }
+  
+  .stat-item:hover {
+    background: #C084FC; /* Purple hover effect */
+    color: var(--color);
+  }
   
