@@ -174,14 +174,6 @@ function createScatterplot() {
         updateTooltipVisibility(false);
     });
 
-    // const brush = d3.brush().on('start brush end', brushed);
-    // d3.select(svg).call(brush);
-    
-    // // Raise dots above the brush overlay so tooltips work
-    // d3.select(svg).selectAll('.dots, .overlay ~ *').raise();
-
-    // // d3.select(svg).call(brush).on('start brush end', brushed);
-    // // d3.select(svg).selectAll('.dots, .overlay ~ *').raise();
     const brush = d3.brush()
     .extent([[usableArea.left, usableArea.top], [usableArea.right, usableArea.bottom]])  // Define the area where brushing can happen
     .on('start brush end', brushed);
