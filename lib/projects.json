@@ -30,10 +30,10 @@
         "description": "Worked with three teammates to design and implement a CutieHack(Citrus) themed Space Invaders Clone using python and Pygame. Implemented randomized smooth movement of all enemy objects, as well as hit detection, lives count display, boss health display, and special time events like an extra life power-up or boss special attack."
     },
     {
-        "title": "Sit beatae nostrum atque.",
-        "year": "2023",
-        "image": "lib/image-coming-soon.jpg",
-        "description": "Beatae iusto qui debitis voluptatem reprehenderit numquam temporibus est laudantium culpa. Ea dolorem, vel fuga impedit beatae placeat consectetur corporis pariatur mollitia provident aliquid molestiae tenetur quaerat dicta nobis voluptates."
+        "title": "Every Bite Counts: An Analysis of How Food Affects Blood Sugar Levels",
+        "year": "2025",
+        "image": "lib/everybite.png",
+        "description": "In this project, we analyzed over 10,000 glucose readings from Dexcom G6 continuous glucose monitors (CGMs), capturing real-time blood glucose levels every 5 minutes across 1–2 week periods for multiple diabetic individuals. By mapping these trends to more than 150 logged meals, we identified key relationships between macronutrient composition—such as carbohydrates, sugar, and protein—and glycemic variability. We engineered a dynamic dashboard with interactive nutrient filters and dataset toggles, enabling side-by-side comparisons of glucose responses across individuals and food types. Our time-series visualizations, including animated plots, revealed how meal timing—like breakfast versus late-night snacks—significantly affects glucose return to baseline. One key insight showed that granola bars, despite having more carbohydrates than cornflakes, triggered smaller glucose spikes (~30 mg/dL), likely due to their higher protein content. We presented these findings to the BIG IDEAs Lab, providing actionable insights to inform future guidelines for CGM-integrated meal recommendations and personalized dietary interventions for diabetic users."
     },
     {
         "title": "Error veritatis reprehenderit officiis?",
