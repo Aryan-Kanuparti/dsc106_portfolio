@@ -3,7 +3,7 @@ console.log("IT’S ALIVE!");
 
 // Dynamically set the base URL
 const IS_LOCALHOST = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-const BASE_PATH = IS_LOCALHOST ? "/" : "/dsc106_portfolio/";
+const BASE_PATH = IS_LOCALHOST ? "/" : "/portfolio/";
 document.write(`<base href="${BASE_PATH}">`);
 
 // Home page check
